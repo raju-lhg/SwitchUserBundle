@@ -1,0 +1,6 @@
+twig:
+    # ...
+    paths:
+        # '%kernel.project_dir%/vendor/acme/foo-bar/templates': foo_bar
+        '"%kernel.root_dir%/../var/plugins/SwitchUserBundle/Resources/views': SwitchUser
+        # "%kernel.root_dir%/../var/plugins/DemoBundle/Entity/"

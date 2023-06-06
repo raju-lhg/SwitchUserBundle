@@ -1,0 +1,16 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+        bind:
+
+    KimaiPlugin\SwitchUserBundle\:
+        resource: '../../*'
+        exclude: '../../{Resources}'
+    
+    KimaiPlugin\SwitchUserBundle\Controller\:
+        resource: '../../Controller'
+        tags: ['controller.service_arguments']
+        # arguments:
+        #     $dataDirectory: "%kimai.data_dir%" 

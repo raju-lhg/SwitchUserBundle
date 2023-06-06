@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% import "macros/widgets.html.twig" as widgets %}
+
+{% block page_title %}{{ 'Switch User'|trans }}{% endblock %}
+
+{% block main %}
+
+    {% block content %} 
+
+        <div class="container mt-5">
+            <form action="{{ path('switch-user') }}" method="post">
+                <div class="form-group">
+                    <label for="dropdown">Select an option:</label>
+                    <select name="user" class="selectpicker form-control select2-hidden-accessible" data-width="50%">
+                        {% for user in users %}
+                            <option value="{{ user.id }}">{{ user.username }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <br>
+            <br>
+            {% if isLoggedInAs == 1 %}
+                <p class="text-muted mt-3">Logged In as <em>{{ loggedInAs }}</em>. <a href="{{ path('exit-switch-user') }}">Click Here</a> to exit this mode. </p>
+            {% else %}
+                <p class="text-muted mt-3">Select a user to login as</p>
+            {% endif %} 
+        </div> 
+    {% endblock %} 
+
+{% endblock %} 
